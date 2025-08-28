@@ -4,8 +4,9 @@
 		<meta charset="UTF-8">
 		<title>Aparecida Nutrição</title>
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="reset.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link rel="principal" href="principal.js">
 	</head>
 	<body>
 		<header>
@@ -27,13 +28,13 @@
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
-						<tr class="paciente" >
+						<tr class="paciente" id="primeiro-paciente">
 							<td class="info-nome">Paulo</td>
 							<td class="info-peso">100</td>
 							<td class="info-altura">2.00</td>
 							<td class="info-gordura">10</td>
 							<td class="info-imc">0</td>
-						</tr>Meus
+						</tr>
 
 						<tr class="paciente" >
 							<td class="info-nome">João</td>
@@ -69,11 +70,6 @@
 				</table>
 			</section>
 		</main>
-		<script>
-			var paciente = document.querySelector("h2");
-			paciente.textContent = "Meus goblins e esqueletinhos🤭​";
-			var paciente = document.querySelector("h1");
-			paciente.textContent = "Nutri tronco royale🗿​🧟‍♂️​";
-		</script>
+		<script src="principal.js"> </script>
 	</body>
 </html>
