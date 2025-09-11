@@ -4,9 +4,10 @@ var Marcelo = document.querySelector("h1");
 Marcelo.textContent = "Nutri Clash​";
 
 // acessar a tag tr - paciente Paulo
-var paciente = document.querySelectorAll(".paciente");
+var pacientes = document.querySelectorAll(".paciente");
 
-for(var i = 0; i < paciente.length; i++){
+for(var i = 0; i < pacientes.length; i++){
+    var paciente = pacientes[i];
     //selecionar o peso da tag
     var tdPeso = paciente.querySelector(".info-peso");
     var peso = tdPeso.textContent;
