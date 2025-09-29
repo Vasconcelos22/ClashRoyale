@@ -1,7 +1,7 @@
-var subtitulo = document.querySelector("h2");
+var subtitulo = document.querySelector(".subtitulo");
+var titulo = document.querySelector(".titulo");
 subtitulo.textContent = "Meus Pacientes";
-var Marcelo = document.querySelector("h1");
-Marcelo.textContent = "Nutri Clash​";
+titulo.textContent = "Nutri Clash​";
 
 // acessar a tag tr - paciente Paulo
 var pacientes = document.querySelectorAll(".paciente");
@@ -29,20 +29,28 @@ for(var i = 0; i < pacientes.length; i++){
 
     if(pesoValido && alturaValda){
     var tdImc = paciente.querySelector(".info-imc");
-    tdImc.textContent = imc;
+    tdImc.textContent = imc.toFixed(2);
     }
 
     //define limites de peso e altura 
     if(peso <=  0 || peso >= 1000){
     alert("Peso invalido");
     var pesoValido = false;
-    tdImc.textContent = "Peso Inválido";
+    tdImc.textContent = "Peso Inválido!";
+    paciente.classList.add("campo-invalido");
     }   
 
     if(altura <= 0 || altura >= 3.00){
     alert("Altura invalida");
     var alturaValda = false;
     tdImc.textContent = "Altura Inválido";
+    paciente.classList.add("campo-invalido");
     }
+}
+
+//Quando clicar bo titulo, apareça um amensagem 
+titulo.addEventlistener('click' , mostraMensagem);
+function mostraMensagem(){
+     alert("Este elemento foi clicado");
 }
 
