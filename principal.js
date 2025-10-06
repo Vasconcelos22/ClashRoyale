@@ -32,7 +32,7 @@ for(var i = 0; i < pacientes.length; i++){
     tdImc.textContent = imc.toFixed(2);
     }
 
-    //define limites de peso e altura 
+    //d+efine limites de peso e altura 
     if(peso <=  0 || peso >= 1000){
     alert("Peso invalido");
     var pesoValido = false;
@@ -86,5 +86,14 @@ alturaTd.textContent = altura;
 gorduraTd.textContent = gordura;
 imcTd.textContent = imc;
 
+//adiciona as tags na tela do usuario
+pacienteTr.appendChild(nomeTd);
+pacienteTr.appendChild(pesoTd);
+pacienteTr.appendChild(alturaTd);
+pacienteTr.appendChild(gorduraTd);
+pacienteTr.appendChild(imcTd);
+
+var tabela = document.querySelector("#tabela-pacientes");
+tabela.appendChild(pacienteTr);
 });
 
