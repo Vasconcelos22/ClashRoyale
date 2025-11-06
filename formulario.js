@@ -8,36 +8,51 @@ event.preventDefault();
 //acessa o formulario
 var formulario = document.querySelector("#form-adiciona");
 
-//captura os valores digitados
-var nome = formulario.nome.value;
-var peso = formulario.peso.value;
-var altura = formulario.altura.value;
-var gordura = formulario.gordura.value;
 
-//cria a tag tr
-var pacienteTr = document.createElement("tr");
 
-//cria as tagas td
-var nomeTd = document.createElement("td");
-var pesoTd = document.createElement("td");
-var alturaTd = document.createElement("td");
-var gorduraTd = document.createElement("td");
-var imcTd = document.createElement("td");
-
-nomeTd.textContent = nome;
-pesoTd.textContent = peso;
-alturaTd.textContent = altura;
-gorduraTd.textContent = gordura;
-imcTd.textContent = calcularIMC(peso, altura);
-
-//adiciona as tags na tela do usuario
-pacienteTr.appendChild(nomeTd);
-pacienteTr.appendChild(pesoTd);
-pacienteTr.appendChild(alturaTd);
-pacienteTr.appendChild(gorduraTd);
-pacienteTr.appendChild(imcTd);
-
+var paciente = buscaValoresFormulario(formulario);
+var pacienteTr = criarTr(paciente);
 var tabela = document.querySelector("#tabela-pacientes");
 tabela.appendChild(pacienteTr);
 
+formulario.reset();
 });
+
+function buscaValoresFormulario(formulario){
+//captura os valores digitados
+var paciente = {
+  nome: formulario.nome.value,
+  peso: formulario.peso.value,
+  altura: formulario.altura.value,
+  gordura: formulario.gordura.value,
+  imc: calcularIMC(formulario.peso.value, formulario.altura.value)
+}
+
+return paciente;
+}
+
+function criarTr(paciente){
+
+//cria a tag tr
+var pacienteTr = document.createElement("tr");
+pacienteTr.classList.add("paciente");
+
+//adiciona as tags na tela do usuario
+pacienteTr.appendChild(criarTd(paciente.nome, "info-nome"));
+pacienteTr.appendChild(criarTd(paciente.peso, "info-peso"));
+pacienteTr.appendChild(criarTd(paciente.altura, "info-altura"));
+pacienteTr.appendChild(criarTd(paciente.gordura, "info-gordura"));
+pacienteTr.appendChild(criarTd(paciente.imc, "info-imc"));
+
+return pacienteTr;
+}
+
+function criarTd(dado, classe){
+    const td = document.createElement("td");
+
+    td.textContent = dado;
+    td.classList.add(classe);
+
+    return td;
+}
+
